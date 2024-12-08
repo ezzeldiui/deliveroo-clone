@@ -16,19 +16,19 @@ import {
 } from "@/components/ui/sheet"
 import { Button } from "@/components/ui/button";
 import { Briefcase, ChevronDown, ChevronsUpDown, CircleHelp, Home, Languages, MapPin, Menu, Newspaper, ShoppingBasket, UserRound } from "lucide-react";
-import { parseAsString, useQueryState } from "nuqs";
-import { useCountry } from "@/hooks/useCountry";
+import { useLocation } from "@/hooks/useLocation";
+
 
 
 export function Navbar() {
 
-    const [location, setLocation] = useQueryState("country", parseAsString.withDefault("ae"));
-    const { country, setCountry } = useCountry();
-
-
+    const {country, cityLabel, setCountry, setLocationInUrl} = useLocation();
+    
     return (
         <section className="px-6 py-1 flex items-center justify-between">
-            <Logo />
+            <div className="z-50 px-2 rounded-lg">
+                <Logo />
+            </div>
 
             <div className="hidden md:flex gap-5 ">
                 <DropdownMenu>
@@ -84,7 +84,7 @@ export function Navbar() {
                                 </Button>
                             </div>
                         </SheetHeader>
-                        <SheetFooter>
+                        <SheetFooter className="flex flex-col w-full">
                             <DropdownMenu>
                                 <DropdownMenuTrigger asChild>
                                     <Button variant="outline" className="w-full justify-between">
@@ -104,11 +104,11 @@ export function Navbar() {
                             </DropdownMenu>
 
                             <DropdownMenu>
-                                <DropdownMenuTrigger asChild className="flex">
+                                <DropdownMenuTrigger asChild>
                                     <Button variant="outline">
                                     <div className="flex justify-start"><MapPin /></div>
                                     <div className="flex flex-1 justify-start">
-                                        {location === "ae" ? "United Arab Emirates" : location === "uk" ? "United Kingdom" : "United States"}
+                                        {cityLabel}
                                     </div>
                                     <div><ChevronsUpDown className="size-4"/></div>
                                     </Button>
@@ -117,15 +117,15 @@ export function Navbar() {
                                 <DropdownMenuContent align="start">
                                     <DropdownMenuItem onClick={() => {
                                     setCountry("ae");
-                                    setLocation(country);
+                                    setLocationInUrl(country);
                                     }}>United Arab Emirates</DropdownMenuItem>
                                     <DropdownMenuItem onClick={() => {
                                     setCountry("uk");
-                                    setLocation(country);
+                                    setLocationInUrl(country);
                                     }}>United Kingdom</DropdownMenuItem>
                                     <DropdownMenuItem onClick={() => {
                                     setCountry("us");
-                                    setLocation(country);
+                                    setLocationInUrl(country);
                                     }}>United States</DropdownMenuItem>
                                 </DropdownMenuContent>
                             </DropdownMenu>

@@ -7,10 +7,10 @@ import { CountryProvider } from './context/CountryContext.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-      <CountryProvider>
-    <NuqsAdapter>
-        <App />
-    </NuqsAdapter>
-      </CountryProvider>
+    <CountryProvider>
+      <NuqsAdapter>
+          <App />
+      </NuqsAdapter>
+    </CountryProvider>
   </StrictMode>,
 )
