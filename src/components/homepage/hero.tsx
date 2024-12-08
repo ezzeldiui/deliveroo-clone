@@ -16,7 +16,6 @@ import { useLocation } from "@/hooks/useLocation"
 import { cn } from "@/lib/utils"
 import { Check, ChevronsUpDown, Navigation } from "lucide-react"
 import { useQueryState } from "nuqs"
-import { useState } from "react"
 import { Button } from "../ui/button"
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "../ui/command"
 
@@ -29,7 +28,7 @@ export function Hero() {
     const { country, getCitiesByCountry } = useLocation();
     const cities = getCitiesByCountry(country);
     const [value, setValue] = useQueryState("city");
-    const [open, setOpen] = useState(false)
+    // const [open, setOpen] = useState(false)
 
 
     return <div className="flex flex-col w-full items-center justify-center relative">
@@ -66,7 +65,7 @@ export function Hero() {
                                         value={cities.value}
                                         onSelect={(currentValue) => {
                                             setValue(currentValue === value ? "" : currentValue)
-                                            setOpen(false)
+                                            // setOpen(false)
                                         }}
                                     >
                                     <Check
