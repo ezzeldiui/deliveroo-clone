@@ -19,9 +19,11 @@ import { useQueryState } from "nuqs"
 import { Button } from "../ui/button"
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "../ui/command"
 
-import abstractArtSrc from "@/assets/images/abstractArt.svg";
-import bagSrc from "@/assets/images/bag.png";
-import burgerSrc from "@/assets/images/burger.png";
+import abstractArtSrc from "@/assets/images/abstractArt.svg"
+import bagSrc from "@/assets/images/bag.png"
+import burgerSrc from "@/assets/images/burger.png"
+import { baseUrl } from "@/main"
+import { Link } from "react-router-dom"
 
 export function Hero() {
 
@@ -61,6 +63,7 @@ export function Hero() {
                                 <CommandGroup>
                                 {cities.map((cities) => (
                                     <CommandItem
+                                        asChild
                                         key={cities.value}
                                         value={cities.value}
                                         onSelect={(currentValue) => {
@@ -68,13 +71,15 @@ export function Hero() {
                                             // setOpen(false)
                                         }}
                                     >
-                                    <Check
-                                        className={cn(
-                                        "mr-2 h-4 w-4",
-                                        value === cities.value ? "opacity-100" : "opacity-0"
-                                        )}
-                                    />
-                                    {cities.label}
+                                        <Link to={`${baseUrl}/restaurant/search?city=${cities.value}`} className={cn("flex items-center gap-2")}>
+                                            <Check
+                                                className={cn(
+                                                "mr-2 h-4 w-4",
+                                                value === cities.value ? "opacity-100" : "opacity-0"
+                                                )}
+                                            />
+                                            {cities.label}
+                                        </Link>
                                     </CommandItem>
                                 ))}
                                 </CommandGroup>

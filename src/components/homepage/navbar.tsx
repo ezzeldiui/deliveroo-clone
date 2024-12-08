@@ -17,6 +17,8 @@ import {
 import { Button } from "@/components/ui/button";
 import { Briefcase, ChevronDown, ChevronsUpDown, CircleHelp, Home, Languages, MapPin, Menu, Newspaper, ShoppingBasket, UserRound } from "lucide-react";
 import { useLocation } from "@/hooks/useLocation";
+import { Link } from "react-router-dom";
+import { baseUrl } from "@/main";
 
 
 
@@ -57,8 +59,10 @@ export function Navbar() {
                 </DropdownMenu>
 
                 <Button variant="outline">
-                    <Home size={24} className="text-primary"/>
-                    Signup or Login
+                    <Link className="flex items-center gap-2" to={`${baseUrl}/login`}>
+                        <Home size={24} className="text-primary"/>
+                        Signup or Login
+                    </Link>
                 </Button>
 
                 <Sheet>
@@ -74,8 +78,10 @@ export function Navbar() {
                                 <Logo />
                             </SheetTitle>
                             <div className="space-y-4 ">
-                                <Button className="w-full">
-                                    Signup or Login
+                                <Button className="w-full" asChild>
+                                    <Link className="flex items-center gap-2" to={`${baseUrl}/login`}>
+                                        Signup or Login
+                                    </Link>
                                 </Button>
 
                                 <Button variant="outline">
