@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { JetBrains_Mono } from "next/font/google";
-import "./globals.css";
+import "@/app/globals.css";
 import { cn } from "lib";
 import { ClerkProvider } from "@clerk/nextjs";
 
@@ -18,8 +18,14 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang="en" className={cn("", fonts.className)}>
-        <body>{children}</body>
+      <html
+        lang="en"
+        className={cn("", fonts.className)}
+        suppressHydrationWarning
+      >
+        <body className="flex items-center h-screen justify-center bg-zinc-400">
+          {children}
+        </body>
       </html>
     </ClerkProvider>
   );
