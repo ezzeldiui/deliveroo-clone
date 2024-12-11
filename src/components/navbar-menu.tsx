@@ -4,6 +4,7 @@ import {
   SignInButton,
   SignOutButton,
 } from "@clerk/nextjs";
+import { Logo } from "components";
 import {
   BriefcaseIcon,
   CircleHelp,
@@ -20,13 +21,11 @@ import {
   DropdownMenuTrigger,
   Sheet,
   SheetContent,
-  SheetDescription,
   SheetFooter,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "ui";
-import { Logo } from "components";
 
 export function NavbarMenu() {
   return (

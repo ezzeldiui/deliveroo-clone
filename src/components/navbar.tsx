@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Logo, NavbarMenu } from "components";
 
 export function Navbar() {
