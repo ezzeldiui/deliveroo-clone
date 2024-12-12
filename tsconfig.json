@@ -22,7 +22,11 @@
       "@/*": ["./src/*"],
       "components": ["./src/components/exports.tsx"],
       "ui": ["./src/components/ui/exports.tsx"],
-      "lib": ["./src/lib/exports.tsx"]
+      "lib": ["./src/lib/exports.tsx"],
+      "hooks": ["./src/hooks/exports.tsx"],
+      "contexts": ["./src/context/exports.tsx"],
+      "data": ["./src/data/exports.tsx"],
+      "types": ["./src/types/exports.tsx"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

@@ -1,8 +1,10 @@
+import { ClerkProvider } from "@clerk/nextjs";
+import { cn } from "lib";
 import type { Metadata } from "next";
 import { JetBrains_Mono } from "next/font/google";
+import { NuqsAdapter } from "nuqs/adapters/next";
 import "./globals.css";
-import { cn } from "lib";
-import { ClerkProvider } from "@clerk/nextjs";
+import { CountriesProvider } from "contexts";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,9 +20,13 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang="en" className={cn("", fonts.className)}>
-        <body>{children}</body>
-      </html>
+      <NuqsAdapter>
+        <CountriesProvider>
+          <html lang="en" className={cn("", fonts.className)}>
+            <body>{children}</body>
+          </html>
+        </CountriesProvider>
+      </NuqsAdapter>
     </ClerkProvider>
   );
 }
