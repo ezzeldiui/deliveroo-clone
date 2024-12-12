@@ -1,6 +1,6 @@
-import { country } from "types";
+import { Country } from "types";
 
-export const countries: country[] = [
+export const countries: Country[] = [
   {
     value: "ae",
     label: "United Arab Emirates",
