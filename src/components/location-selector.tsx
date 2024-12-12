@@ -7,7 +7,7 @@ import { FormEvent, useId } from "react";
 import { Button, Card, CardContent, CardFooter, Progress } from "ui";
 
 export function LocationSelector() {
-  const { selectedCountry, setSelectedCountry, selectedCity } = useCountries();
+  const { selectedCountry, selectedCity } = useCountries();
   const id = useId();
 
   const { step, isFirstStep, isLastStep, progress, next, back } =
