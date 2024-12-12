@@ -9,17 +9,8 @@ import { Button, Card, CardContent, CardFooter, Progress } from "ui";
 export function LocationSelector() {
   const { selectedCountry, setSelectedCountry, selectedCity } = useCountries();
 
-  const {
-    currentStepIndex,
-    steps,
-    step,
-    isFirstStep,
-    isLastStep,
-    progress,
-    goToStepWithIndex,
-    next,
-    back,
-  } = useMultistepForm([<CountrySelectionForm />, <CitySelectionForm />]);
+  const { step, isFirstStep, isLastStep, progress, next, back } =
+    useMultistepForm([<CountrySelectionForm />, <CitySelectionForm />]);
 
   function onSubmit(e: FormEvent) {
     e.preventDefault();
