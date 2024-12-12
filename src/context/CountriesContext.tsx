@@ -35,7 +35,6 @@ export const CountriesProvider = ({ children }: { children: ReactNode }) => {
   };
 
   useEffect(() => {
-    // Reset selected city when selected country changes
     setSelectedCity("");
   }, [selectedCountry]);
 
