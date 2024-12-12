@@ -1,11 +1,10 @@
 "use client";
 
-import React, { FormEvent } from "react";
-import { useCountries } from "hooks";
-import { useMultistepForm } from "hooks";
-import { Button, Card, CardContent, CardFooter, Progress } from "ui";
-import { CountrySelectionForm, CitySelectionForm } from "components";
+import { CitySelectionForm, CountrySelectionForm } from "components";
+import { useCountries, useMultistepForm } from "hooks";
 import { redirect } from "next/navigation";
+import { FormEvent } from "react";
+import { Button, Card, CardContent, CardFooter, Progress } from "ui";
 
 export function LocationSelector() {
   const { selectedCountry, setSelectedCountry, selectedCity } = useCountries();
