@@ -1,9 +1,6 @@
 "use client";
 
-import { useCountries } from "hooks";
-import { cn } from "lib";
-import { Check, ChevronsUpDown } from "lucide-react";
-import { useState } from "react";
+import React, { useState } from "react";
 import {
   Button,
   Command,
@@ -16,6 +13,9 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "ui";
+import { Check, ChevronsUpDown } from "lucide-react";
+import { cn } from "lib";
+import { useCountries } from "hooks";
 
 export function CountrySelectionForm() {
   const { countries, selectedCountry, setSelectedCountry } = useCountries();
@@ -51,7 +51,7 @@ export function CountrySelectionForm() {
                   <CommandItem
                     key={country.value}
                     value={country.value}
-                    onSelect={(currentValue: "") => {
+                    onSelect={(currentValue: string) => {
                       setSelectedCountry(
                         currentValue === selectedCountry ? "" : currentValue
                       );
